@@ -1,0 +1,86 @@
+unit Unit1;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
+  System.Bluetooth, FMX.ScrollBox, FMX.Memo, FMX.Controls.Presentation,
+  FMX.StdCtrls,  System.Bluetooth.Components;
+
+type
+  TForm1 = class(TForm)
+    Bluetooth1: TBluetooth;
+    Button1: TButton;
+    Memo1: TMemo;
+    procedure Button1Click(Sender: TObject);
+  private
+    Fsocket : TBluetoothSocket;
+    BluetoothAdapter : TBluetoothAdapter;
+    FBluetoothManager = TBluetoothManager;
+    LDevice: TBluetoothDeviceList;
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.fmx}
+
+procedure TForm1.Button1Click(Sender: TObject);
+var
+  Msg, Texto: string;
+  I, B: Integer;
+  BluetoothAdapter: TBluetoothAdapter;
+  ListaDeAparelhosPareados: TBluetoothDeviceList;
+  LServices: TBluetoothServiceList;
+begin
+  try
+    Memo1.Lines.Add('Ponto 1');
+    FBluetoothManager := TBluetoothManager.create;
+    if FBluetoothManager = nil then
+      Memo1.Lines.Add('FBluetoothManager esta nulo');
+
+    Memo1.Lines.Add('Ponto 2');
+    BluetoothAdapter := TBluetoothadapter.create;
+    if BluetoothAdapter = nil then
+    Memo1.Lines.Add('BluetoothAdapter esta nulo');
+
+    ListaDeAparelhosPareados := BluetoothAdapter.PairedDevices;
+    Memo1.Lines.Add('Ponto 3');
+    if ListaDeAparelhosPareados = nil then
+      Memo1.Lines.Add('ListaDeAparelhosPareados esta nulo');
+
+    for I := 0 to ListaDeAparelhosPareados.Count - 1 do
+    begin
+      LDevice := ListaDeAparelhosPareados[I] as TBluetoothDevice;
+      if LDevice.IsPaired then
+      begin
+        LServices := LDevice.GetServices;
+        for B := 0 to LServices.Count - 1 do
+        begin
+          ServiceGUI := GUIDToString(LServices[B].UUID);
+          Guid := LServices[B].UUID;
+          ServiceName := LServices[B].Name;
+          Memo1.Lines.Add(LServices[B].Name + ' --> ' + ServiceGUI);
+          Memo1.GoToTextEnd;
+        end;
+      end;
+    end;
+  except
+   on E: Exception do
+   begin
+     Msg := E.Message;
+     Memo1.Lines.Add('Erro ao Conectar na Impressora: ' + Msg);
+     Memo1.GoToTextEnd;
+   end;
+ end;
+
+
+end;
+
+end.

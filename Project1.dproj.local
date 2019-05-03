@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2019/02/25 13:13:30.000.370,=C:\Users\harold_alcantara\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2019/02/25 14:08:21.000.429,=C:\Users\harold_alcantara\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2019/05/03 08:40:43.000.510,=C:\Users\harold_alcantara\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2019/05/03 10:15:06.000.552,C:\Users\harold_alcantara\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\Users\harold_alcantara\Documents\Embarcadero\Studio\Projects\bluetooth\Unit1.pas</Transaction>
+    <Transaction>2019/05/03 10:15:06.000.552,C:\Users\harold_alcantara\Documents\Embarcadero\Studio\Projects\Unit1.fmx=C:\Users\harold_alcantara\Documents\Embarcadero\Studio\Projects\bluetooth\Unit1.fmx</Transaction>
+    <Transaction>2019/05/03 10:15:08.000.340,C:\Users\harold_alcantara\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\harold_alcantara\Documents\Embarcadero\Studio\Projects\bluetooth\Project1.dproj</Transaction>
+  </Transactions>
+	<ActiveMobileDevice>
+		<NoProfile iOSSimulator="iPhone5" Android="NXPDU17502000181"/>
+	</ActiveMobileDevice>
+</BorlandProject>
